@@ -1,0 +1,18 @@
+Installing required libraries
+pip install pandas
+pip install scikit-learn
+
+
+
+
+
+
+
+
+# Define a simple classifier to evaluate the generated digit
+classifier = MLPClassifier(hidden_layer_sizes=(128, 64, 10), activation='relu', solver='adam', random_state=42)
+classifier.fit(X_scaled, y)
+
+# Classify the generated digit
+predicted_label = classifier.predict(synthetic_digit.flatten().reshape(1, -1))
+print(f"Predicted Label for Generated Digit: {predicted_label[0]}")
